@@ -15,3 +15,17 @@ exports.createTodo = async (req,res) => {
     }
     catch(error) {res.status(500).json({error:error.message}) }  
 };
+
+//fetch all the todo for a single user
+
+exports.getTodo = async (req,res) => {
+    try{
+        const todos = await prisma.Todo.findMany({
+            where: {userId: req.user.userId}
+        });
+        res.status(201).json({message:"List of all todos are below", todos});
+    }
+    catch(error){
+        res.status(500).json({error:error.message});
+    }
+};

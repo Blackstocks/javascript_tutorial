@@ -25,7 +25,7 @@ exports.login = async (req,res) => {
         process.env.JWT_SECRET,
         {expiresIn: "1h"}
     );
-    res.json({token});
+    res.json({message:"User login Successfully!!", token});
 };
 // module.exports = {
 //     register,
