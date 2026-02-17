@@ -7,5 +7,6 @@ app.get("/", (req,res) => {
     res.json({status:"ok",uptime:process.uptime()});
 });
 app.use("/auth", require("./routes/auth.routes"));
+app.use("/todos", require("./routes/todo.routes"));
 
 module.exports = app;
